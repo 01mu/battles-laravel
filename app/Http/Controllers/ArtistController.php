@@ -12,6 +12,7 @@ class ArtistController extends Controller
 {
     public function getArtist($channel, $artist) {
         $response = [];
+        $battles = [];
 
         $am = new ArtistModel;
         $abm = new ArtistBattlesModel;
@@ -28,7 +29,9 @@ class ArtistController extends Controller
             $response['response'] = 'good';
         }
 
-        $battles = collect($battles)->sortBy('timestamp')->reverse()->toArray();
+        usort($battles, function($a, $b) {
+            return $b['timestamp'] - $a['timestamp'];
+        });
 
         $response['artist_info'] = $info;
         $response['artist_battles'] = $battles;
