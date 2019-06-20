@@ -21,17 +21,13 @@ class ArtistController extends Controller
         $battle_ids = $abm->getIDs($channel, $artist);
 
         $info = $am->getArtistInfo($channel, $artist);
-        $battles = $bm->getBattlesFromIDs($battle_ids);
+        $battles = $bm->getBattlesFromIDs($battle_ids, $artist);
 
         if($info == ['error']) {
             $response['response'] = 'bad';
         } else {
             $response['response'] = 'good';
         }
-
-        usort($battles, function($a, $b) {
-            return $b['timestamp'] - $a['timestamp'];
-        });
 
         $response['artist_info'] = $info;
         $response['artist_battles'] = $battles;

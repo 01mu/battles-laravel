@@ -23,6 +23,14 @@ class ArtistBattlesModel extends Model
         return $battle_ids;
     }
 
+    public function getSingleOpponent($battle_id, $artist) {
+        return ArtistBattlesModel::select('name')
+            ->where('battle_id', '=', $battle_id)
+            ->where('name', '!=', $artist)
+            ->orderBy('name', 'ASC')
+            ->get()[0]->name;
+    }
+
     public function getOpponents($battle_id) {
         return ArtistBattlesModel::select('name')
             ->where('battle_id', '=', $battle_id)
