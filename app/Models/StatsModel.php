@@ -9,6 +9,8 @@ class StatsModel extends Model
     protected $table = 'stats';
 
     public function getStats() {
-        return StatsModel::select('*')->get();
+        return StatsModel::select('*')
+            ->orderBy('views', 'DESC')
+            ->get();
     }
 }
