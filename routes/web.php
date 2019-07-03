@@ -13,7 +13,6 @@
 
 Route::get('/', 'HomeController@index');
 
-
 Route::group(['middleware' => 'cors'], function ()
 {
     Route::get('/artist/{channel}/{artist}', 'ArtistController@getArtist');
