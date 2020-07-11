@@ -13,7 +13,7 @@
         "axios": "^0.19",
         "bootstrap": "^4.1.0",
         "cross-env": "^5.1",
-        "jquery": "^3.2",
+        "jquery": "^3.5.1",
         "laravel-mix": "^4.0.7",
         "lodash": "^4.17.15",
         "popper.js": "^1.12",
@@ -25,10 +25,12 @@
     "dependencies": {
         "acorn": "^7.1.1",
         "http-foundation": "symfony/http-foundation",
+        "kind-of": "^6.0.3",
         "mime": "^2.4.4",
         "minimist": "^1.2.5",
         "mixin-deep": "^2.0.1",
         "serialize-javascript": "^3.0.0",
-        "set-value": "^3.0.1"
+        "set-value": "^3.0.1",
+        "websocket-extensions": "^0.1.4"
     }
 }
